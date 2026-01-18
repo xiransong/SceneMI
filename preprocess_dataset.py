@@ -34,7 +34,8 @@ def fixseed(seed):
     torch.manual_seed(seed)
 
 device = "cpu"
-base_dir = 'Data_release' # set your TRUMANS origin data here
+base_dir = "~/scratch/repo/SceneMI/dataset/TRUMANS/Data_release" # set your TRUMANS origin data here
+smplx_model_path = "~/scratch/repo/SceneMI/body_models"
 
 fps = 30
 motion_len = 121
@@ -63,7 +64,7 @@ uniform_verts_idx = []
 all_verts_idx = []
 
 
-sbj_m_bs = smplx.create(model_path="./body_models/",
+sbj_m_bs = smplx.create(model_path=smplx_model_path,
                 model_type='smplx',
                 gender="neutral",
                 use_pca=False,
@@ -78,7 +79,7 @@ if os.path.exists(verts_id_path):
 
 else:
     print("get downsample verts id")
-    sbj_m_single = smplx.create(model_path="./body_models/",
+    sbj_m_single = smplx.create(model_path=smplx_model_path,
                 model_type='smplx',
                 gender="neutral",
                 use_pca=False,
@@ -105,7 +106,7 @@ else:
         torch.save(torch.tensor(uniform_verts_idx), f)
 
 
-sbj_m_single = smplx.create(model_path="./body_models/",
+sbj_m_single = smplx.create(model_path=smplx_model_path,
                 model_type='smplx',
                 gender="neutral",
                 use_pca=False,
