@@ -176,7 +176,7 @@ class DataOptions:
     light_bps: bool = field(default=False, metadata={"help": "Light-Weight BPS"})
     sub_bps: int = field(default=64,
                             metadata={"help": "Number of sub-sample bps feature", "choices":
-                             [0, 64, 96]})
+                             [0, 15, 64, 96]})
     global_mask: bool = field(default=False, metadata={"help": "local global selection mode"})
     trunc_bps: float = field(default=1.0, metadata={"help": "Truncnated BPS feature."})
     rm_end: bool = field(default=False, metadata={"help": "Remove end effector (feet) poses. for GIMO data only"})

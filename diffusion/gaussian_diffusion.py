@@ -24,7 +24,7 @@ from common.quaternion import *
 from os.path import join as pjoin
 import pickle
 import smplx
-import smplx_model
+# import smplx_model
 import torch.nn as nn
 
 import pdb
@@ -273,22 +273,23 @@ class GaussianDiffusion:
 
         
         
-        #self.smplx = smplx.create(model_path="./body_models/",
-        #        model_type='smplx',
-        #        gender="neutral",
-        #        use_pca=False,
-        #        flat_hand_mean=True,
-        #        batch_size=self.nframes * self.bs,
-        #        ).to('cuda').eval()
+        self.smplx = smplx.create(model_path="./body_models/",
+               model_type='smplx',
+               gender="neutral",
+               use_pca=False,
+               num_betas=10,
+               flat_hand_mean=True,
+               batch_size=self.nframes * self.bs,
+               ).to('cuda').eval()
         
-        self.smplx_model = smplx_model.create(model_path="./body_models/",
-                model_type='smplx',
-                gender="neutral",
-                use_pca=False,
-                num_betas=10,
-                flat_hand_mean=True,
-                batch_size=self.nframes * self.bs,
-                ).to('cuda').eval()
+        # self.smplx_model = smplx_model.create(model_path="./body_models/",
+        #         model_type='smplx',
+        #         gender="neutral",
+        #         use_pca=False,
+        #         num_betas=10,
+        #         flat_hand_mean=True,
+        #         batch_size=self.nframes * self.bs,
+        #         ).to('cuda').eval()
 
 
     def repr_dim_info(self,):
@@ -2124,8 +2125,9 @@ class GaussianDiffusion:
                         body_params['betas'] = model_kwargs['y']['betas'].repeat(self.nframes, 1)
 
                                      
+                    smplx_output = self.smplx(**body_params)
 
-                    smplx_output = self.smplx_model(**body_params)
+                    # smplx_output = self.smplx_model(**body_params)
 
 
 

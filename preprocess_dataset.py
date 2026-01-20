@@ -34,7 +34,7 @@ def fixseed(seed):
     torch.manual_seed(seed)
 
 device = "cpu"
-base_dir = "/home/ubuntu/scratch/repos/SceneMI/datasets/TRUMANS/Data_release" # set your TRUMANS origin data here
+base_dir = "/home/ubuntu/scratch/repos/SceneMI/dataset/TRUMANS/Data_release" # set your TRUMANS origin data here
 smplx_model_path = "/home/ubuntu/scratch/repos/SceneMI/body_models"
 
 fps = 30

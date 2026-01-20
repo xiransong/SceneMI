@@ -207,8 +207,8 @@ class TRUMANS(data.Dataset):
         #data_preprocess_folder = 'preprocess_trumans'  # SET YOUR PREPROCESS FOLDER HERE
 
         scene_preprocess_folder = 'preprocess_scene'
-        data_preprocess_folder = 'preprocess_120_dynaFalse_noiseSynthetic_startendTrue_betaTrue'
-
+        # data_preprocess_folder = 'preprocess_120_dynaFalse_noiseSynthetic_startendTrue_betaTrue'
+        data_preprocess_folder = '/home/ubuntu/scratch/repos/SceneMI/preprocess_120_betaFalse'
 
         self.mode = split
         self.split = split
